@@ -14,9 +14,9 @@ spec:
       labels:
         app: nginx
     spec:
+        type: LoadBalancer
       containers:
       - name: nginx
-        image: 876594438092.dkr.ecr.us-east-1.amazonaws.com/python:latest
-        type: loadbalancer
+        image: 876594438092.dkr.ecr.us-east-1.amazonaws.com/python:latest 
         ports:
         - containerPort: 5000 
