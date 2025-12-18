@@ -1,21 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-deployment
+  name: hotstar-app
   labels:
-    app: nginx
+    app: hotstar-app
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
-      app: nginx
+      app: hotstar-app
   template:
     metadata:
       labels:
-        app: nginx
+        app: hotstar-app
     spec:
+      terminationGracePeriodSeconds: 30
       containers:
-      - name: nginx
-        image: 876594438092.dkr.ecr.us-east-1.amazonaws.com/mira:latest 
-        ports:
-        - containerPort: 3000 
+      - name: hotstar-app
+        #image: veeranarni/hotstar:latest
+        image: 876594438092.dkr.ecr.us-east-1.amazonaws.com/mira:latest
+        imagePullPolicy: "Always"
+        
